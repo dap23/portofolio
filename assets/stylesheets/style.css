@@ -358,6 +358,11 @@ img {
   padding: 1rem;
   border-radius: 0.5rem;
   font-weight: var(--font-medium);
+  border: none;
+}
+
+button:hover {
+  background-color: var(--first-color-alt);
 }
 
 .button:hover {
@@ -397,6 +402,15 @@ img {
 .button--link:hover {
   background-color: transparent;
   color: var(--first-color-alt);
+}
+
+.btn-kirim,
+.button-loading {
+  display: none;
+}
+
+.active {
+  display: block;
 }
 
 /* About */
@@ -933,6 +947,33 @@ img {
   background-color: var(--text-color-light);
 }
 
+/* alert */
+.alert {
+  padding: 20px;
+  background-color: var(--first-color);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.d-none {
+  display: none;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: var(--first-color-alt);
+}
+
 /* Media Queries */
 /* small devices */
 @media screen and (max-width: 350px) {
@@ -1226,7 +1267,12 @@ img {
     width: 460px;
   }
 
+  .alert {
+    width: 460px;
+    height: max-content;
+  }
+
   .contact__inputs {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
