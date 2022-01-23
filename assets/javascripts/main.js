@@ -197,3 +197,29 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 // End theme
+
+// contact app
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbwiFG92vgNNVVUaHYZE0CF7ayIaZsZbFhkk1j0MnlzBJ1NaUZrlRRWtsSGGzrZ3U80G/exec";
+const form = document.forms["contact-form-porto"];
+const button_kirim = document.querySelector(".btn-kirim");
+const button_loading = document.querySelector(".button-loading");
+const alert = document.querySelector(".alert");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  button_loading.classList.toggle("active");
+  button_kirim.classList.toggle("active");
+
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => {
+      button_kirim.classList.toggle("active");
+      button_loading.classList.toggle("active");
+      alert.classList.toggle("d-none");
+      form.reset();
+      console.log("Success!", response);
+    })
+    .catch((error) => {
+      console.error("Error!", error.message);
+    });
+});
